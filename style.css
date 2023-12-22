@@ -1,0 +1,103 @@
+ * {
+     margin: 0;
+     padding: 0;
+     box-sizing: border-box;
+ }
+
+ .container {
+     min-height: 100vh;
+     /* background-color: #7FC8F8;
+          background-color: #5AA9E6; */
+     background-image: radial-gradient(#00ffae, #0eff6a);
+     width: 100vw;
+
+
+     /* display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-top: 20px;
+        row-gap: 20px; */
+
+     display: grid;
+     justify-content: center;
+     align-items: center;
+     align-content: start;
+     gap: 10px;
+     padding:10px 20px;
+
+
+ }
+
+ .firstDiv {
+     background-color: white;
+     padding: 15px;
+     width: 100%;
+     min-width: 200px;
+     display: flex;
+     gap: 5px;
+     border-radius: 10px;
+
+ }
+
+ .firstDiv input {
+     width: 8rem;
+ }
+
+ .divContainer {
+
+     background-color: rgb(255, 255, 255);
+     width: 100%;
+     border-radius: 10px;
+     padding: 20px;
+     display: flex;
+     align-items: flex-start;
+     gap: 10px;
+     margin-top: 10px;
+
+
+     /* using grid(no flex basis is needed for the child elements) */
+     /* display: grid;
+        grid-template-columns: 2fr 1fr 1fr;
+        align-items: start;
+        padding: 20px; */
+
+ }
+
+
+
+
+ .divContainer .delete {
+     background-color: transparent;
+     border: 1px solid black;
+     padding: 3px;
+ }
+
+ .divContainer .delete:hover,
+ .delete:focus {
+     background-color: red;
+     cursor: pointer;
+ }
+
+ .add {
+     width: 3rem;
+
+ }
+
+
+
+ .item:nth-child(1) {
+     flex-basis: 50%;
+     word-break: break-all;
+
+ }
+
+ .item:nth-child(2) {
+
+     flex-basis: 30%;
+ }
+
+ .item:nth-child(3) {
+
+
+     flex-basis: 20%;
+ }
