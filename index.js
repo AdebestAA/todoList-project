@@ -3,12 +3,12 @@
     let dateInput = document.querySelector('.dateInput')
 
     const addBtn = document.querySelector(".add")
-   let savedItem = JSON.parse(localStorage.getItem("todoArray")) ;
     let screen = ''
-
-   let divContainer = document.querySelector('.divContainer')
-let container = document.querySelector('.outerContainer')
+    
+    let divContainer = document.querySelector('.divContainer')
+    let container = document.querySelector('.outerContainer')
     let todoArray = []
+    let savedItem = JSON.parse(localStorage.getItem("todoArray")) ;
 if (savedItem) {
     todoArray = savedItem;
 
@@ -18,6 +18,7 @@ loopThrough(todoArray)
 
 
 function loopThrough(todoArray) {
+
          for (let i = 0; i < todoArray.length; i++) {
 
                 screen += `<div class="divContainer">
@@ -34,8 +35,6 @@ function loopThrough(todoArray) {
 
         addBtn.addEventListener("click",add)
     function add() {
-
-
         let nameInputValue = textInput.value
         let dateInputValue = dateInput.value
 
@@ -44,14 +43,13 @@ function loopThrough(todoArray) {
             alert('empty field')
             return;
         }
-    
-
+        screen = ""
             todoArray.push({
                 todoText: nameInputValue,
                 todoDate: dateInputValue
             })
 
-           
+           console.log(todoArray);
 
             for (let i = 0; i < todoArray.length; i++) {
 
@@ -66,14 +64,18 @@ function loopThrough(todoArray) {
             
             textInput.value = ''
             dateInput.value = ''
+            delTodoList()
+        }
+        
+        
+        function delTodoList() {
+            let del = document.querySelectorAll('.delete')
 
-
- let del = document.querySelectorAll('.delete')
-            
             del.forEach((value, index) => {
                 
                 value.addEventListener('click', () => {
-                    
+                    let savedItem = JSON.parse(localStorage.getItem("todoArray")) ;
+                    todoArray = savedItem;
                     if (todoArray.length < 2) {
                         todoArray = []
                         value.parentElement.remove()
@@ -93,15 +95,9 @@ function loopThrough(todoArray) {
 
                 })
             })
-
-
         }
-
-
         
-
-        
-
+delTodoList()
 
 
 
